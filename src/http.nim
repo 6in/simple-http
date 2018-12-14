@@ -3,7 +3,7 @@ import httppkg/main
 
 
 let doc = """
-http.
+http server for static contents.
 
 Usage:
   http --port=<port> [--root=<root>]
