@@ -201,7 +201,7 @@ proc extractAll*(z: var ZipArchive, dest: string) =
     echo "[file]=" & file
     if file.contains("/"):
       createDir(dest / file[0..file.rfind("/")])
-      continue
+      # continue
     # if (dest / file[0..file.rfind("/")]).dirExists() :
     #   echo "skip"
     #   continue
