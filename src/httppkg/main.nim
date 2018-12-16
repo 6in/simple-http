@@ -7,7 +7,7 @@ proc main*(args: Table[string, Value]): int =
   result = 0
   let port: int = parseInt($args["--port"])
 
-  var root: string = getCurrentDir()
+  var root: string = "."
   if args["--root"].kind == vkStr:
     root = $args["--root"]
     if os.existsDir(root) == false:

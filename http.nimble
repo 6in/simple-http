@@ -12,11 +12,14 @@ bin           = @[ "http" ]    # アプリケーションファイル名
 skipDirs      = @[ "tests" , "util" ]     # nimble install時にスキップするフォルダ
 backend       = "c"                       # デフォルトはc
 
+const resourceDir   = "html"
+
 # Dependencies
 
 requires "nim >= 0.19.0"
 requires "docopt >= 0.6.7"
 requires "jester >= 0.4.1" 
+requires "zip >= 0.2.1"
 
 task run, "アプリケーションを実行します":
   exec "nimble build"
@@ -49,3 +52,8 @@ task rename_test, "リネームテスト用":
   exec "nim c -r --out:bin/rename_app util/rename_app.nim ../http2 " & packageName
   rmDir "../http2/src/" & packageName & "pkg"
 
+task musl, "MUSLでシングルバイナリを作成します for linux":
+  exec "nim c -d:release -d:pcre --out:bin/" & packageName & "src/" & packageName & ".nim"
+
+task make_resource, "リソースを作成":
+  exec "nim c -r --out:bin/make_resource util/make_resource.nim " & resourceDir
