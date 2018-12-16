@@ -19,7 +19,6 @@ const resourceDir   = "html"
 requires "nim >= 0.19.0"
 requires "docopt >= 0.6.7"
 requires "jester >= 0.4.1" 
-requires "zip >= 0.2.1"
 
 task run, "アプリケーションを実行します":
   exec "nimble build"

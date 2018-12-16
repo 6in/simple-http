@@ -59,7 +59,7 @@ else:
 #   {.pragma: mydll.}
 # else:
     {.passl: "-lz".}
-    {.compile: "zip/private/libzip_all.c".}
+    {.compile: "src/zip/private/libzip_all.c".}
     {.pragma: mydll.}
 
 type

@@ -198,8 +198,13 @@ proc extractAll*(z: var ZipArchive, dest: string) =
   ## extracts all files from archive `z` to the destination directory.
   createDir(dest)
   for file in walkFiles(z):
+    echo "[file]=" & file
     if file.contains("/"):
       createDir(dest / file[0..file.rfind("/")])
+      continue
+    # if (dest / file[0..file.rfind("/")]).dirExists() :
+    #   echo "skip"
+    #   continue
     extractFile(z, file, dest / file)
 
 when not defined(testing) and isMainModule:

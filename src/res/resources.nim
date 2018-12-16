@@ -2,9 +2,10 @@
 import os
 import base64
 import resource_file
-import zip/zipfiles
+import ../zip/zipfiles
 
 proc expandResource* (dir: string) : bool = 
+  result = true
   # base64をzipファイルとして保存する
   let s = decode(resource_string)
   let zipFileName = getTempDir() / "resource.zip"

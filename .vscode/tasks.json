@@ -30,7 +30,7 @@
             "command": "nim c -r -d:debug --debuginfo --lineDir:on --debugger:native --laxStrings:on --nilseqs:on --threads:on -o:${workspaceRoot}/bin/test ${file}",
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             },
             "problemMatcher": []
         },
@@ -41,7 +41,7 @@
             "command": "nim c -r -d:debug --debuginfo --lineDir:on --debugger:native --laxStrings:on --nilseqs:on --threads:on -o:${workspaceRoot}/bin/test ${workspaceRoot}/src/http.nim",
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
             "problemMatcher": []
         }
