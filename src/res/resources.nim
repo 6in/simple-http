@@ -2,12 +2,20 @@
 import os
 import base64
 import resource_file
+import zip/zipfiles
 
-proc writeZipFile* () : string = 
-  result = getTempDir() / "resource.zip"
+proc expandResource* (dir: string) : bool = 
+  # base64をzipファイルとして保存する
   let s = decode(resource_string)
-  let f = open( result, FileMode.fmWrite)
+  let zipFileName = getTempDir() / "resource.zip"
+  let f = open(zipFileName, FileMode.fmWrite)
   f.write(s)
   f.close()
 
-# discard extract_file()
+  # ZIPを任意のフォルダに解凍する
+  var z: ZipArchive
+  if not z.open(zipFileName):
+    echo "open zip fail"
+  z.extractAll(dir)
+  z.close()
+

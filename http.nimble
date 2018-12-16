@@ -57,3 +57,4 @@ task musl, "MUSLでシングルバイナリを作成します for linux":
 
 task make_resource, "リソースを作成":
   exec "nim c -r --out:bin/make_resource util/make_resource.nim " & resourceDir
+  
